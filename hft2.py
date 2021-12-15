@@ -44,5 +44,4 @@ def hugging_face(input_txt,opt):
 
     text = ' '.join([summ['summary_text'] for summ in res])
     return text
-
 hugging_face("https://hackernoon.com/an-introduction-to-the-internet-computer",1)
