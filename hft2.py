@@ -17,7 +17,7 @@ def hugging_face(input_txt,opt):
     else :
         ARTICLE = input_txt
 
-    max_chunk= 400
+    max_chunk= 500
     ARTICLE = ARTICLE.replace('.', '.<eos>')
     ARTICLE = ARTICLE.replace('?', '?<eos>')
     ARTICLE = ARTICLE.replace('!', '!<eos>')
@@ -39,9 +39,11 @@ def hugging_face(input_txt,opt):
     for chunk_id in range(len(chunks)):
        chunks[chunk_id] = ' '.join(chunks[chunk_id])
       #len(chunks)
-    res = summarizer(chunks, max_length=40, min_length=10, do_sample=False)
+
+    res = summarizer(chunks, max_length=120, min_length=30, do_sample=False)
     #print(res)
 
     text = ' '.join([summ['summary_text'] for summ in res])
+    print("==========================================")
     return text
-hugging_face("https://hackernoon.com/an-introduction-to-the-internet-computer",1)
+# hugging_face("https://hackernoon.com/an-introduction-to-the-internet-computer",1)
